@@ -15,6 +15,7 @@ class BehaviorTree:
         self.config = config# dict
         self.root = config["root"]# str > b3t.node
         self.nodes = self.getNodes()# dict
+        self.properties = config["properties"]
     def __repr__(self):# str
         """String representation."""
         return "<Behavior()>"
@@ -38,8 +39,8 @@ class BehaviorTree:
             pass
 
         # composite nodes
-        if config["name"] == "Random":
-            node = Random(config, children)
+        if config["name"] == "RandomSequence":
+            node = RandomSequence(config, children)
         elif config["name"] == "Sequence":
             node = Sequence(config, children)
         elif config["name"] == "Selector":
@@ -51,10 +52,13 @@ class BehaviorTree:
             node = Inverter(config, child)
         elif config["name"] == "Failer":
             node = Failer(config)
+            node = Failer(config)
         # action nodes - functions
         elif config["name"][-1] == ")" or config["name"][-2] == "(":
             if config["name"] == "toConsole()":
                 node = toConsole(config)
+            if config["name"] == "random()":
+                node = random(config)
 
         else:
             node = Node(config)

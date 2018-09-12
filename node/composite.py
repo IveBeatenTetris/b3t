@@ -20,14 +20,14 @@ class Composite(Node):
         """String representation."""
         return "<Composite>"
 
-class Random(Composite):
-    """Return a random child-state."""
+class RandomSequence(Composite):
+    """Return a random sequenced child-state."""
     def __init__(self, config, children={}):
         """Constructor."""
         Composite.__init__(self, config, children)
     def __repr__(self):# str
         """String representation."""
-        return "<Random>"
+        return "<RandomSequence>"
     def execute(self):
         """
         Generate an int between 0 and the count of children. Use this int to

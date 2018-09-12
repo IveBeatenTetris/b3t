@@ -7,6 +7,7 @@ class Node:
         self.id = config["id"]# str
         self.name = config["name"]# str
         self.type = None# none > str
+        self.properties = config["properties"]# dict
     def __repr__(self):# str
         """String representation."""
         return "<Node>"

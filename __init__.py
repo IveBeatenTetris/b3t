@@ -17,7 +17,7 @@ from .core.state import State
 from .node.basenode import Node
 
 # composite
-from .node.composite import Random
+from .node.composite import RandomSequence
 from .node.composite import Sequence
 from .node.composite import Selector
 
@@ -28,4 +28,5 @@ from .node.decorator import Inverter
 from .node.action import Succeeder
 from .node.action import Failer
 # functions
+from .node.action import random
 from .node.action import toConsole
